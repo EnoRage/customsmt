@@ -19,7 +19,7 @@ func main() {
 
 	t := customsmt.CreateTree(sContent)
 
-	log.Println(customsmt.Hashes(t))
+	log.Println(customsmt.GetMerkleRoot(t))
 
 	var content2 []string
 	content2 = append(content2, "hv1ly")
@@ -29,11 +29,11 @@ func main() {
 	content2 = append(content2, "cl2ivv5l")
 	content2 = append(content2, "4444")
 
-	sContent2 := customsmt.CreateContent(content)
+	sContent2 := customsmt.CreateContent(content2)
 
 	customsmt.Test(sContent2, t)
 
-	log.Println(customsmt.Hashes(t))
+	log.Println(customsmt.GetMerkleRoot(t))
 	//log.Println(customsmt.GetMerkleRoot(t))
 	//log.Println(customsmt.VerifySpecificLeaf(t, sContent[1]))
 
