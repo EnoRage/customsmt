@@ -41,7 +41,7 @@ func CreateTree(list []merkletree.Content) *merkletree.MerkleTree {
 	return t
 }
 
-func Test(content []merkletree.Content, tree *merkletree.MerkleTree) {
+func RewriteTree(content []merkletree.Content, tree *merkletree.MerkleTree) {
 	tree.RebuildTreeWith(content)
 	//tree.RebuildTree()
 }
@@ -60,6 +60,14 @@ func VerifySpecificLeaf(tree *merkletree.MerkleTree, content merkletree.Content)
 
 func ShowLeafs(tree *merkletree.MerkleTree) string {
 	return tree.String()
+}
+
+func VerifyAll(tree *merkletree.MerkleTree) bool {
+	res, err := tree.VerifyTree()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return res
 }
 
 func Hashes(tree *merkletree.MerkleTree) []string {
